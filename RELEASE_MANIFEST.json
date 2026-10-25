@@ -12,6 +12,11 @@
       "sha256": "fdbeca9bf3dfbb06e6464b65ff2949236fba76838bc07b338686eb2943fe9b20"
     },
     {
+      "path": "README.md",
+      "size": 2664,
+      "sha256": "f8e7fadbf9b9521e3bd9de0f06ba8800ba2f5daf15c2908dedd97c68aee3e97b"
+    },
+    {
       "path": "configs/attack_family_baseline.yaml",
       "size": 740,
       "sha256": "52a1c0d2a3543ed98a080bd5de4721798db920e5b9e2cd615d4f09f303900e7c"
@@ -147,6 +152,31 @@
       "sha256": "29a7abd07a1beaf97daf430a6368a9e0bb3e69365e1f25f599b43330247cb3ba"
     },
     {
+      "path": "paper/ieee_final_report/ContinualGuard_IEEE_Final_Report_v3.pdf",
+      "size": 344735,
+      "sha256": "c76326d97f9324244b64f6a69096044f18fecfbd53e316cbbadab09ae9b35f9b"
+    },
+    {
+      "path": "paper/ieee_final_report/ContinualGuard_IEEE_Overleaf_GitHub_Link.zip",
+      "size": 205467,
+      "sha256": "f8908aa2f28f476adcb88ec50327670fcd854614919aa70b10537143442178cd"
+    },
+    {
+      "path": "paper/ieee_final_report/IEEEtran.bst",
+      "size": 59215,
+      "sha256": "b445bc94cfde36bb836a4c6f5ce7149f1488d76dfe8acd39a8771f084ba8f348"
+    },
+    {
+      "path": "paper/ieee_final_report/IEEEtran.cls",
+      "size": 281957,
+      "sha256": "da751920a317ed318b7b5cd7fa585a6cc7d28502d457856382e9be24b10a3bd7"
+    },
+    {
+      "path": "paper/ieee_final_report/README.md",
+      "size": 1432,
+      "sha256": "485cf92cb4b53808855887c3fdf37158fd59d25ace3d649cbd01280c55c7f98f"
+    },
+    {
       "path": "paper/ieee_final_report/figures/b_hard_benign_retention.pdf",
       "size": 24975,
       "sha256": "e4386804457ef9b41ef915d4127bd75d65002af8e84e06b9eb64e7d89919e5d7"
@@ -182,24 +212,9 @@
       "sha256": "3796886a782136e872a9252426ccbff4e921f9e9b31b8f05dc8a23d6f8229ae2"
     },
     {
-      "path": "paper/ieee_final_report/IEEEtran.bst",
-      "size": 59215,
-      "sha256": "b445bc94cfde36bb836a4c6f5ce7149f1488d76dfe8acd39a8771f084ba8f348"
-    },
-    {
-      "path": "paper/ieee_final_report/IEEEtran.cls",
-      "size": 281957,
-      "sha256": "da751920a317ed318b7b5cd7fa585a6cc7d28502d457856382e9be24b10a3bd7"
-    },
-    {
       "path": "paper/ieee_final_report/main.tex",
-      "size": 44758,
-      "sha256": "2776467b91fe17a678551d3bac62c72bdf35d4c2a9b3e86a30a910a6561567cd"
-    },
-    {
-      "path": "paper/ieee_final_report/README.md",
-      "size": 1349,
-      "sha256": "1ba00242b82b360de55fd774b8227df2793f187b654b939e1e0005e340cb70b4"
+      "size": 44846,
+      "sha256": "c46f1669c3f642fc2fcea5c1e42ef00d91cdca8a170aa4424275631cbcc16fcb"
     },
     {
       "path": "paper/ieee_final_report/references.bib",
@@ -235,11 +250,6 @@
       "path": "pyproject.toml",
       "size": 590,
       "sha256": "64de212e266e8bd93afef9f6e031bf3c6125dbf9f20b673e4778176e0a27080b"
-    },
-    {
-      "path": "README.md",
-      "size": 2664,
-      "sha256": "7de327596dbf75ca028876c9d1b7484c1691f083d2a837c6ed0deb424b298ff1"
     },
     {
       "path": "requirements-lock.txt",

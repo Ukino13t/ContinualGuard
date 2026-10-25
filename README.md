@@ -4,7 +4,7 @@ ContinualGuard is a research code and report release for continual indirect
 prompt-injection detection. It studies both malicious-attack retention and
 benign over-defense under sequential updates of a fixed DeBERTa-v3-base binary
 detector. The final course report is in
-[`paper/ieee_final_report/ContinualGuard_IEEE_Final_Report_v2.pdf`](paper/ieee_final_report/ContinualGuard_IEEE_Final_Report_v2.pdf).
+[`paper/ieee_final_report/ContinualGuard_IEEE_Final_Report_v3.pdf`](paper/ieee_final_report/ContinualGuard_IEEE_Final_Report_v3.pdf).
 
 The constructed four-stage Candidate B benchmark combines document, short-form,
 and reviewed hard-benign contexts. Across three seeds, no-replay training showed

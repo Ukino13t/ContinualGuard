@@ -53,7 +53,7 @@ Experience replay preserves a bounded sample of the past \cite{rolnick2019experi
 
 \section{Methodology}
 \subsection{Task and evaluation measures}
-Stages arrive in order \af{2}$\rightarrow$\af{3}$\rightarrow$\af{4}$\rightarrow$\af{5}. At stage $t$, a binary detector $f_\theta(x)$ learns current-stage examples with label 0 for benign content and label 1 for IPI. Model weights carry forward; AdamW state is reset. After each stage, the detector is evaluated on every seen test stage.
+Stages arrive in order \af{2}$\rightarrow$\af{3}$\rightarrow$\af{4}$\rightarrow$\af{5}. At stage $t$, a binary detector $f_\theta(x)$ learns current-stage examples with label 0 for benign content and label 1 for IPI. Model weights carry forward; AdamW state is reset. After each stage, the detector is evaluated on every seen test stage. The research code and aggregate results are publicly available.\footnote{\url{https://github.com/Ukino13t/ContinualGuard}}
 
 Acquisition is performance immediately after learning a stage. For a higher-is-better metric $m$, final backward transfer over the $T-1$ earlier stages is
 \begin{equation}
@@ -63,7 +63,6 @@ For each earlier stage we calculate the largest nonnegative attack-TPR decline f
 Worst-group diagnostics take the maximum acquisition-to-final FPR increase over available benign metadata groups and the maximum attack-TPR decrease over head, middle, and tail positions of earlier stages, flooring both at zero. They are descriptive maxima over the pre-existing groups, not independently estimated population risks. Each position slice has 20 malicious test items, hence 5-pp resolution.
 
 Replay entry follows a prospective three-state policy. R0 means replay is not justified; R1 records limited evidence; R2 requires a predeclared harmful magnitude, cross-seed directional consistency, and matched evidence. These states decide whether replay may be studied, not which replay method wins.
-\subsection{Benchmark construction}
 \subsection{Benchmark selection and stage design}
 
 The first family-disjoint stream used Naive, Ignore, Escape-Separation, and Fake Completion. Acquisition approached the ceiling and retention changes were small or transient. H2-mini then introduced independently reviewed benign pressure, but its control and hard-benign arms both had attack-TPR BWT of zero. Replay remained blocked at R0. \candb{} was the final escalation. Its No Replay result reached R2, after which benchmark development stopped and replay methods were frozen.
@@ -97,7 +96,7 @@ Arm & Benign context after anchor & Malicious stages \\
 \end{table}
 
 \begin{table*}[t]
-\caption{Frozen \candb{} stage composition. Every split is balanced by label; each stage test has 60 malicious and 60 benign records. The four-stage sequence contributes 2,320 arm memberships per arm and 3,770 unique selected records across the three arms after intentional shared anchors.}
+\caption{Frozen \candb{} stage composition.}
 \label{tab:stage-composition}
 
 \centering
@@ -198,7 +197,7 @@ The training environment was Python 3.14.5, PyTorch 2.14.0+cu126, Transformers 4
 Table~\ref{tab:primary} gives the frozen primary comparison. Negative attack ``loss'' denotes positive backward transfer; negative FPR increase means the final FPR is lower than at acquisition.
 
 \begin{table*}[t]
-\caption{Primary results, mean $\pm$ sample SD over three seeds. Lower is better in the three change columns. All methods learn every current stage adequately.}
+\caption{Primary results across three seeds (mean $\pm$ sample SD).}
 \label{tab:primary}
 
 \centering
@@ -249,7 +248,7 @@ The benign endpoint tells a complementary story. No Replay increases overall \bh
 The arm-level backward-transfer profile (Table~\ref{tab:arm-retention}) separates attack recall, macro-F1, benign-FPR increase, and peak attack forgetting. In B-Hard, No Replay's attack TPR remains nearly stable while macro-F1 drops: benign over-defense, rather than attack forgetting, is the dominant error. B-Short shows the opposite large attack-retention problem. The seed tables expose the discrete test outcomes behind these means.
 
 \begin{table*}[t]
-\caption{Full arm-level retention summary, mean $\pm$ sample SD in percentage points. BWT is signed; higher is better. Positive FPR increase and peak forgetting are harmful.}
+\caption{Arm-level retention summary (mean $\pm$ sample SD, pp).}
 \label{tab:arm-retention}
 
 \centering
