@@ -1,0 +1,27 @@
+run_type: reportable research result
+data_path: data/processed/chen_attack_family_shift.jsonl
+stage_order: [AF1, AF4, AF3, AF2]
+seed: 42
+model:
+  kind: pretrained_deberta
+  checkpoint: microsoft/deberta-v3-base
+  revision: 8ccc9b6f36199bec6961081d44eb72fb3f7353f3
+  local_artifact: data/raw/huggingface/microsoft_deberta-v3-base/8ccc9b6f36199bec6961081d44eb72fb3f7353f3
+  max_length: 1280
+training:
+  epochs: 1
+  batch_size: 4
+  gradient_accumulation_steps: 1
+  gradient_checkpointing: true
+  learning_rate: 0.00001
+  betas: [0.9, 0.999]
+  epsilon: 0.00000001
+  weight_decay: 0.0
+  max_grad_norm: 1.0
+  optimizer_transition: reset
+  scheduler: constant
+  pre_adaptation: false
+device: cuda
+precision: float16
+deterministic: true
+threads: 4

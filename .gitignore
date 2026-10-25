@@ -1,0 +1,25 @@
+# Local research inputs and outputs are never published.
+data/
+review/
+history/
+results/**
+!results/final_tables/
+!results/final_tables/*.csv
+!results/final_tables/*.json
+.venv/
+__pycache__/
+.pytest_cache/
+.pytest_tmp*/
+test-output/
+*.egg-info/
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.onnx
+*.env
+*.pem
+*.key
+*.sqlite
+*.db

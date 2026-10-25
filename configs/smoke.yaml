@@ -1,0 +1,27 @@
+run_type: software smoke test
+data_path: tests/fixtures/synthetic.jsonl
+stage_order: [S1, S2]
+seed: 42
+model:
+  kind: tiny_deberta
+  checkpoint: synthetic-random-deberta-v2
+  revision: local-v1
+  local_artifact: null
+  max_length: 512
+training:
+  epochs: 1
+  batch_size: 4
+  gradient_accumulation_steps: 1
+  gradient_checkpointing: false
+  learning_rate: 0.00001
+  betas: [0.9, 0.999]
+  epsilon: 0.00000001
+  weight_decay: 0.0
+  max_grad_norm: 1.0
+  optimizer_transition: reset
+  scheduler: constant
+  pre_adaptation: true
+device: cpu
+precision: float32
+deterministic: true
+threads: 1

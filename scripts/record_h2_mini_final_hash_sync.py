@@ -1,0 +1,11 @@
+"""Record canonical-copy and explicit-count hash synchronization after final validation."""
+import json
+from datetime import datetime,timezone
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1]
+h=ROOT/'history/changes.jsonl'
+assert not any(json.loads(x)['id']=='C031' for x in h.read_text(encoding='utf-8').splitlines())
+entry={'date':datetime.now(timezone.utc).isoformat(),'id':'C031','decision_id':'D043','reason':'Record UTF-8 BOM canonical copies and explicit accepted-count fields while preserving corrected original submissions','files_changed':['scripts/finalize_h2_mini_hash_assignments.py','scripts/patch_h2_mini_final_topup_explicit_counts.py','scripts/record_h2_mini_final_hash_sync.py','review/b0_final_topup_canonical/reviewer_A_batch_01.csv','review/b0_final_topup_canonical/reviewer_B_batch_01.csv','results/h2_mini_b0_final_topup_analysis.json','review/b0_final_topup_canonical_manifest.json','data/manifests/hard_benign/B0_final_accepted.json','data/manifests/h2_mini/h2m_final_assignment_validation.json','docs/h2_mini_b0_final_topup_results.md','docs/change_log.md','history/changes.jsonl'],'validation':['Original completed CSV hashes still match canonical manifest','Canonical copies preserve exact decoded fields and add UTF-8 BOM only','Explicit training ACCEPT=40/reject=0 and evaluation both-ACCEPT=24 derived directly from submitted judgments','All dependent manifest hashes synchronized with zero mismatches'],'scientific_behavior_changed':False,'human_judgments_changed':False,'assignments_changed':False}
+with h.open('a',encoding='utf-8') as f:f.write(json.dumps(entry,ensure_ascii=False)+'\n')
+d=ROOT/'docs/change_log.md';s=d.read_text(encoding='utf-8-sig');s+='''\n\n<!-- H2_MINI_FINAL_HASH_METADATA_SYNC_20261004:BEGIN -->\n## C031 - Canonical encoding and explicit-count metadata sync\n\nCreated two UTF-8 BOM canonical copies because the corrected originals are valid UTF-8 without BOM. Original files and all human values remain unchanged. Added explicit training ACCEPT/reject and evaluation both-ACCEPT totals to the final analysis and synchronized dependent hashes. Final assignments and scientific conclusions are unchanged.\n<!-- H2_MINI_FINAL_HASH_METADATA_SYNC_20261004:END -->\n''';d.write_text(s,encoding='utf-8')
+print(json.dumps(entry,ensure_ascii=False,indent=2))

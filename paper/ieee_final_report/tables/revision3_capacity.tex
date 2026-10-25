@@ -1,0 +1,28 @@
+\begin{table*}[t]
+\caption{Matched capacity grid, mean $\pm$ sample SD over three seeds. Rates are in percentage points; A0-v2/A1 share numerical and replay-index settings. Online Reservoir is excluded.}
+\label{tab:r3-capacity}
+
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lllr rrr@{}}
+\toprule
+Arm & $M$ & Method & TPR BWT & FPR increase & Acq. TPR & Final FPR \\
+\midrule
+B-SHORT & 50 & A0 & $-0.93\pm1.60$ & $+4.26\pm7.38$ & $99.58\pm0.42$ & $4.03\pm5.90$ \\
+B-SHORT & 50 & A1 & $-0.19\pm1.40$ & $+0.56\pm0.56$ & $99.31\pm0.64$ & $1.25\pm0.83$ \\
+B-SHORT & 200 & A0 & $-0.56\pm1.47$ & $+0.19\pm0.32$ & $99.17\pm0.42$ & $0.83\pm0.72$ \\
+B-SHORT & 200 & A1 & $+0.19\pm0.64$ & $+0.74\pm2.31$ & $99.58\pm0.00$ & $1.25\pm1.44$ \\
+B-SHORT & 400 & A0 & $-0.19\pm1.28$ & $-0.19\pm0.32$ & $99.44\pm0.48$ & $0.56\pm0.24$ \\
+B-SHORT & 400 & A1 & $+0.56\pm0.56$ & $+0.00\pm0.00$ & $99.44\pm0.48$ & $0.56\pm0.24$ \\
+B-HARD & 50 & A0 & $-0.19\pm1.28$ & $+0.74\pm1.28$ & $99.58\pm0.42$ & $1.11\pm0.87$ \\
+B-HARD & 50 & A1 & $+0.56\pm0.56$ & $+2.04\pm4.02$ & $99.31\pm0.64$ & $2.36\pm3.37$ \\
+B-HARD & 200 & A0 & $+0.37\pm0.32$ & $+0.00\pm0.56$ & $99.31\pm0.24$ & $0.56\pm0.24$ \\
+B-HARD & 200 & A1 & $+0.19\pm0.32$ & $+0.19\pm0.32$ & $99.44\pm0.24$ & $0.69\pm0.24$ \\
+B-HARD & 400 & A0 & $-0.56\pm2.42$ & $-0.19\pm0.32$ & $99.44\pm0.48$ & $0.42\pm0.00$ \\
+B-HARD & 400 & A1 & $-0.56\pm1.92$ & $-0.19\pm0.32$ & $99.44\pm0.48$ & $0.42\pm0.00$ \\
+\bottomrule
+\end{tabular*}
+
+
+\end{table*}

@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "english_word_count_approx": 4007,
+  "citation_claims_checked": 15,
+  "report_sections": 10,
+  "figures_embedded": 6,
+  "primary_table_rows": 5,
+  "frozen_runs": 45,
+  "frozen_stage_end_checkpoints": 180,
+  "new_experiments": 0
+}

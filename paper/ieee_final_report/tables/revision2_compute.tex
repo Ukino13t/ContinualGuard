@@ -1,0 +1,25 @@
+\begin{table*}[t]
+\caption{Three-seed current-only exposure control. All methods have 100 optimizer updates per stage. Current-only processes two independent current minibatches per update and never sees historical training examples. Replay substitutes historical records after the first stage; the conditions are not fully wall-clock or data-access equivalent. Values are mean $\pm$ sample SD in percent or percentage points.}
+\label{tab:r2-compute}
+
+\centering\small
+\begin{tabular}{llcccc}
+\toprule
+Arm & Method & Final TPR & Final FPR & Final macro-F1 & TPR BWT \\
+\midrule
+B-DOC & No Replay & 98.75 $\pm$ 0.42 & 0.00 $\pm$ 0.00 & 99.37 $\pm$ 0.21 & -1.30 $\pm$ 0.85 \\
+B-DOC & Current-only 2$\times$ & 97.50 $\pm$ 1.82 & 0.00 $\pm$ 0.00 & 98.74 $\pm$ 0.92 & -2.96 $\pm$ 2.74 \\
+B-DOC & Reservoir ER & 99.86 $\pm$ 0.24 & 0.00 $\pm$ 0.00 & 99.93 $\pm$ 0.12 & 0.37 $\pm$ 0.64 \\
+\midrule
+B-SHORT & No Replay & 90.42 $\pm$ 9.80 & 7.08 $\pm$ 11.91 & 90.45 $\pm$ 5.96 & -12.59 $\pm$ 13.26 \\
+B-SHORT & Current-only 2$\times$ & 93.61 $\pm$ 5.69 & 5.69 $\pm$ 5.84 & 93.72 $\pm$ 1.46 & -8.33 $\pm$ 7.72 \\
+B-SHORT & Reservoir ER & 99.72 $\pm$ 0.48 & 0.42 $\pm$ 0.00 & 99.65 $\pm$ 0.24 & 0.37 $\pm$ 1.16 \\
+\midrule
+B-HARD & No Replay & 99.58 $\pm$ 0.72 & 15.97 $\pm$ 13.57 & 89.58 $\pm$ 8.47 & -0.19 $\pm$ 0.85 \\
+B-HARD & Current-only 2$\times$ & 100.00 $\pm$ 0.00 & 14.44 $\pm$ 12.45 & 91.15 $\pm$ 7.85 & 0.19 $\pm$ 0.32 \\
+B-HARD & Reservoir ER & 99.44 $\pm$ 0.96 & 1.67 $\pm$ 2.17 & 98.89 $\pm$ 0.94 & 0.19 $\pm$ 1.40 \\
+\bottomrule
+\end{tabular}
+
+
+\end{table*}

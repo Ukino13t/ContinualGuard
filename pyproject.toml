@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "continualguard"
+version = "0.1.0"
+description = "Auditable current-stage-only IPI detection baseline"
+requires-python = ">=3.10"
+dependencies = ["torch>=2.6", "transformers>=4.45,<5", "numpy", "scikit-learn", "PyYAML", "sentencepiece", "protobuf>=5,<7"]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.scripts]
+continualguard = "continualguard.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

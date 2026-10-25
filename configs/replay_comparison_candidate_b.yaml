@@ -1,0 +1,44 @@
+run_type: reportable research result
+experiment: Candidate B primary replay comparison
+data_path: data/processed/stronger_pilot_candidate_b
+stage_order: [AF2, AF3, AF4, AF5]
+seed: 42
+model:
+  kind: pretrained_deberta
+  checkpoint: microsoft/deberta-v3-base
+  revision: 8ccc9b6f36199bec6961081d44eb72fb3f7353f3
+  local_artifact: data/raw/huggingface/microsoft_deberta-v3-base/8ccc9b6f36199bec6961081d44eb72fb3f7353f3
+  max_length: 1280
+training:
+  epochs: 1
+  batch_size: 4
+  gradient_accumulation_steps: 1
+  gradient_checkpointing: true
+  learning_rate: 0.00001
+  betas: [0.9, 0.999]
+  epsilon: 0.00000001
+  weight_decay: 0.0
+  max_grad_norm: 1.0
+  optimizer_transition: reset
+  scheduler: constant
+  pre_adaptation: false
+replay:
+  methods: [reservoir, derpp, security_aware]
+  memory_capacity_examples: 200
+  replay_batch_size: 4
+  exposure: one replay batch per current minibatch when memory is nonempty
+  reservoir_sampling: standard_unstratified
+  reservoir_and_security_loss: (current_ce + replay_ce) / 2
+  derpp_alpha: 0.5
+  derpp_beta: 0.5
+  derpp_loss: (current_ce + alpha*replay_logit_mse + beta*replay_ce) / (1+alpha+beta)
+  derpp_logit_timing: online_current_batch_pre_optimizer_update
+  security_score: malicious=1-p_attack; benign=p_attack
+  security_score_timing: pre_stage_update_on_train_only
+  security_label_targets: {benign: 100, malicious: 100}
+  security_stage_quota: deterministic_even_with_earlier_stage_remainder
+  buffer_update_timing: after_stage_training
+device: cuda
+precision: float16
+deterministic: true
+threads: 4

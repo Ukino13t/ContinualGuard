@@ -1,0 +1,3 @@
+scope,status,capacity,replay_batch_size,fixed_common_factors,only_intended_difference
+M1-M3 primary replay,PASS,200,4,True,replay method and its required stored state/selection rule
+M3-M4 selector control,PASS,200,4,True,pre-update memory selection score
